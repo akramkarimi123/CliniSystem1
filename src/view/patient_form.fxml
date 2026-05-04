@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.PatientController"
+            fitToWidth="true"
+            fitToHeight="true"
+            style="-fx-background: white;">
+
+    <content>
+        <VBox spacing="15"
+              styleClass="form-container"
+              stylesheets="@dental_clinic.css"
+              prefWidth="900"
+              prefHeight="800">
+
+            <padding>
+                <Insets top="15" left="15" right="15" bottom="15"/>
+            </padding>
+
+            <Label text="Patient Management" styleClass="form-title"/>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Search:" styleClass="form-label"/>
+                <TextField fx:id="searchField" promptText="Name, phone or email" HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <!-- 🔥 FIXED TABLE (IMPORTANT CHANGES HERE) -->
+            <TableView fx:id="patientTable"
+                       prefHeight="50"
+                       VBox.vgrow="ALWAYS"
+                       maxHeight="Infinity"
+                       minHeight="100">
+
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="60"/>
+                    <TableColumn fx:id="colFirstName" text="First Name" prefWidth="150"/>
+                    <TableColumn fx:id="colLastName" text="Last Name" prefWidth="150"/>
+                    <TableColumn fx:id="colPhone" text="Phone" prefWidth="140"/>
+                    <TableColumn fx:id="colEmail" text="Email" prefWidth="200"/>
+                    <TableColumn fx:id="colAge" text="Age" prefWidth="80"/>
+                </columns>
+            </TableView>
+
+            <Separator/>
+
+            <Label text="Patient Details" style="-fx-font-weight: bold; -fx-text-fill: #0066a0;"/>
+
+            <GridPane hgap="15" vgap="10">
+                <padding><Insets top="5" bottom="5"/></padding>
+
+                <Label text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <TextField fx:id="firstNameField" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <Label text="Last Name:" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                <TextField fx:id="lastNameField" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+
+                <Label text="Date of Birth:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <DatePicker fx:id="dobPicker" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Label text="Gender:" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                <ComboBox fx:id="genderCombo" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+
+                <Label text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <TextField fx:id="phoneField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                <Label text="Email:" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                <TextField fx:id="emailField" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+
+                <Label text="Emergency Contact:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                <TextField fx:id="emergencyContactField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                <TextArea fx:id="addressArea" GridPane.columnIndex="1" GridPane.rowIndex="4"
+                          GridPane.columnSpan="3" prefHeight="60"/>
+
+                <Label text="Medical History:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                <TextArea fx:id="medicalHistoryArea" GridPane.columnIndex="1" GridPane.rowIndex="5"
+                          GridPane.columnSpan="3" prefHeight="60"/>
+
+                <HBox spacing="10" alignment="CENTER_RIGHT"
+                      GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.columnSpan="4">
+
+                    <Button fx:id="addButton" text="Add Patient" onAction="#addPatient"/>
+                    <Button fx:id="updateButton" text="Update" onAction="#updatePatient" disable="true"/>
+                    <Button fx:id="deleteButton" text="Delete" onAction="#deletePatient" disable="true"/>
+                    <Button fx:id="clearButton" text="Clear" onAction="#clearForm"/>
+
+                </HBox>
+            </GridPane>
+
+            <Label fx:id="statusLabel"/>
+
+        </VBox>
+    </content>
+</ScrollPane>

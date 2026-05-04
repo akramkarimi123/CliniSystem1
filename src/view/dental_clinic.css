@@ -1,0 +1,215 @@
+/* dental_clinic.css - Professional Dental Clinic Design */
+/* Karimi Dental Clinic - Clinical & Clean */
+
+.root {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-background-color: linear-gradient(to bottom, #f7fbff, #eef5fb);
+}
+
+/* Login Screen */
+.login-container {
+    -fx-background-color: linear-gradient(to bottom right, #ffffff, #eaf4fc);
+    -fx-padding: 45;
+    -fx-spacing: 22;
+    -fx-alignment: center;
+    -fx-background-radius: 10;
+}
+
+.login-title {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #005b8f;
+    -fx-letter-spacing: 1px;
+    -fx-padding: 0 0 25 0;
+}
+
+.login-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #5c728a;
+}
+
+.login-field {
+    -fx-pref-width: 260;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #c6d9ee;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 9;
+}
+
+.login-field:focused {
+    -fx-border-color: #0066a0;
+    -fx-effect: dropshadow(gaussian, rgba(0,102,160,0.2), 5, 0, 0, 1);
+}
+
+.login-button {
+    -fx-background-color: linear-gradient(to right, #0066a0, #0086c9);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 11 22;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+}
+
+.login-button:hover {
+    -fx-background-color: linear-gradient(to right, #005080, #006fa6);
+}
+
+/* Dashboard */
+.dashboard-container {
+    -fx-background-color: linear-gradient(to bottom, #f4f8fc, #e9f2f9);
+}
+
+.dashboard-header {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dce5ef;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 18 22;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 8, 0, 0, 2);
+}
+
+.clinic-name {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #005b8f;
+}
+
+.welcome-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #5c728a;
+}
+
+.stat-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 12, 0, 0, 3);
+    -fx-padding: 18;
+    -fx-alignment: center;
+}
+
+.stat-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,102,160,0.2), 15, 0, 0, 4);
+}
+
+.stat-number {
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0066a0;
+}
+
+.stat-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #7a9bb8;
+}
+
+.nav-button {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #c6d9ee;
+    -fx-border-radius: 6;
+    -fx-padding: 11 22;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0066a0;
+    -fx-cursor: hand;
+}
+
+.nav-button:hover {
+    -fx-background-color: #eaf4fc;
+}
+
+/* Form Styles */
+.form-container {
+    -fx-background-color: white;
+    -fx-padding: 22;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.07), 8, 0, 0, 2);
+}
+
+.form-title {
+    -fx-font-size: 21px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #005b8f;
+    -fx-padding: 0 0 15 0;
+    -fx-border-color: #dce5ef;
+    -fx-border-width: 0 0 1 0;
+}
+
+.form-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 6 0;
+}
+
+.text-field, .text-area, .combo-box, .date-picker {
+    -fx-background-color: white;
+    -fx-border-color: #c6d9ee;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 7;
+}
+
+.text-field:focused, .text-area:focused, .combo-box:focused, .date-picker:focused {
+    -fx-border-color: #0066a0;
+    -fx-effect: dropshadow(gaussian, rgba(0,102,160,0.2), 4, 0, 0, 1);
+}
+
+.button-primary {
+    -fx-background-color: linear-gradient(to right, #0066a0, #0086c9);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 9 18;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+}
+
+.button-primary:hover {
+    -fx-background-color: linear-gradient(to right, #005080, #006fa6);
+}
+
+.button-secondary {
+    -fx-background-color: #eef6fd;
+    -fx-text-fill: #0066a0;
+    -fx-font-weight: bold;
+    -fx-padding: 9 18;
+    -fx-background-radius: 5;
+    -fx-border-color: #c6d9ee;
+    -fx-cursor: hand;
+}
+
+.button-secondary:hover {
+    -fx-background-color: #dcecff;
+}
+
+.button-danger {
+    -fx-background-color: #e5534b;
+    -fx-text-fill: white;
+    -fx-padding: 9 18;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+}
+
+.button-danger:hover {
+    -fx-background-color: #c9302c;
+}
+
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #dce5ef;
+    -fx-border-radius: 6;
+}
+
+.table-view .column-header {
+    -fx-background-color: #eaf4fc;
+    -fx-font-weight: bold;
+    -fx-text-fill: #005b8f;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #f2f9ff;
+}
+
+.status-label {
+    -fx-padding: 10;
+    -fx-font-style: italic;
+    -fx-text-fill: #5c728a;
+}

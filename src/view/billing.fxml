@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.BillingController"
+            fitToWidth="true"
+            fitToHeight="true"
+            style="-fx-background: white;">
+
+    <content>
+        <VBox spacing="15"
+              prefWidth="900"
+              prefHeight="800"
+              style="-fx-background-color: white; -fx-padding: 15;">
+
+            <!-- TITLE -->
+            <Label text="Billing &amp; Invoices"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #0066a0;"/>
+
+            <!-- SEARCH -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Search:"/>
+                <TextField fx:id="searchField" HBox.hgrow="ALWAYS"/>
+
+                <Label text="Status:"/>
+                <ComboBox fx:id="statusFilter" prefWidth="150"/>
+            </HBox>
+
+            <!-- ✅ TABLE (SAME FIX AS PATIENT) -->
+            <TableView fx:id="billingTable"
+                       prefHeight="50"
+                       VBox.vgrow="ALWAYS"
+                       maxHeight="Infinity"
+                       minHeight="120">
+
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="colInvoiceNo" text="Invoice #" prefWidth="120"/>
+                    <TableColumn fx:id="colPatientName" text="Patient" prefWidth="180"/>
+                    <TableColumn fx:id="colTotal" text="Total" prefWidth="100"/>
+                    <TableColumn fx:id="colPaid" text="Paid" prefWidth="100"/>
+                    <TableColumn fx:id="colBalance" text="Balance" prefWidth="100"/>
+                    <TableColumn fx:id="colStatus" text="Status" prefWidth="100"/>
+                    <TableColumn fx:id="colDate" text="Date" prefWidth="120"/>
+                </columns>
+
+            </TableView>
+
+            <Separator/>
+
+            <!-- FORM TITLE -->
+            <Label text="Invoice Details"
+                   style="-fx-font-weight: bold; -fx-text-fill: #0066a0;"/>
+
+            <!-- FORM -->
+            <GridPane hgap="15" vgap="10">
+
+                <Label text="Patient:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <ComboBox fx:id="patientCombo" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <Label text="Payment Method:" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                <ComboBox fx:id="paymentMethodCombo" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+
+                <Label text="Total:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <TextField fx:id="totalAmountField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Label text="Discount:" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                <TextField fx:id="discountField" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+
+                <Label text="Tax:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <TextField fx:id="taxField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                <Label text="Paid:" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                <TextField fx:id="paidAmountField" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+
+                <Label text="Status:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                <ComboBox fx:id="paymentStatusCombo" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                <Label text="Date:" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+                <DatePicker fx:id="paymentDatePicker" GridPane.columnIndex="3" GridPane.rowIndex="3"/>
+
+                <Label text="Notes:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                <TextArea fx:id="notesArea"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="4"
+                          GridPane.columnSpan="3"
+                          prefHeight="70"/>
+
+                <!-- BALANCE -->
+                <Label fx:id="balanceLabel"
+                       text="Balance Due: $0.00"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="5"
+                       GridPane.columnSpan="4"
+                       style="-fx-font-weight: bold; -fx-text-fill: red;"/>
+
+                <!-- BUTTONS -->
+                <HBox spacing="10" alignment="CENTER_RIGHT"
+                      GridPane.columnIndex="0"
+                      GridPane.rowIndex="6"
+                      GridPane.columnSpan="4">
+
+                    <Button fx:id="addButton" text="Create Invoice" onAction="#addBilling"/>
+                    <Button fx:id="updateButton" text="Update" onAction="#updateBilling" disable="true"/>
+                    <Button fx:id="deleteButton" text="Delete" onAction="#deleteBilling" disable="true"/>
+                    <Button fx:id="printButton" text="Print" onAction="#printInvoice" disable="true"/>
+                    <Button fx:id="clearButton" text="Clear" onAction="#clearForm"/>
+
+                </HBox>
+
+            </GridPane>
+
+            <Label fx:id="statusLabel"/>
+
+        </VBox>
+    </content>
+
+</ScrollPane>

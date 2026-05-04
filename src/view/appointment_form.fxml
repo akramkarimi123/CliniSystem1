@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.AppointmentController"
+            fitToWidth="true"
+            fitToHeight="true">
+
+    <content>
+        <VBox spacing="15"
+              styleClass="form-container"
+              stylesheets="@dental_clinic.css"
+              prefWidth="1000">
+
+            <padding>
+                <Insets top="15" left="15" right="15" bottom="15"/>
+            </padding>
+
+            <Label text="Appointment Scheduling" styleClass="form-title"/>
+
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <Label text="Date:"/>
+                <DatePicker fx:id="dateFilter" prefWidth="120"/>
+                <Label text="Status:"/>
+                <ComboBox fx:id="statusFilter" prefWidth="120"/>
+                <Region HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <!-- FIXED TABLE -->
+            <TableView fx:id="appointmentTable"
+                       VBox.vgrow="ALWAYS"
+                       minHeight="100">
+
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="60"/>
+                    <TableColumn fx:id="colPatientName" text="Patient" prefWidth="180"/>
+                    <TableColumn fx:id="colDate" text="Date" prefWidth="120"/>
+                    <TableColumn fx:id="colTime" text="Time" prefWidth="100"/>
+                    <TableColumn fx:id="colStatus" text="Status" prefWidth="120"/>
+                    <TableColumn fx:id="colReason" text="Reason" prefWidth="220"/>
+                </columns>
+            </TableView>
+
+            <Separator/>
+
+            <Label text="Appointment Details"
+                   style="-fx-font-weight: bold; -fx-text-fill: #0066a0;"/>
+
+            <GridPane hgap="15" vgap="10">
+                <padding><Insets top="5" bottom="5"/></padding>
+
+                <Label text="Patient:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <ComboBox fx:id="patientCombo" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <Label text="Date:" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                <DatePicker fx:id="appointmentDatePicker" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+
+                <Label text="Time:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <HBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <ComboBox fx:id="hourCombo"/>
+                    <Label text=":"/>
+                    <ComboBox fx:id="minuteCombo"/>
+                    <ComboBox fx:id="ampmCombo"/>
+                </HBox>
+
+                <Label text="Duration (min):" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                <ComboBox fx:id="durationCombo" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+
+                <Label text="Reason:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <TextArea fx:id="reasonArea" GridPane.columnIndex="1" GridPane.rowIndex="2"
+                          GridPane.columnSpan="3" prefHeight="60"/>
+
+                <Label text="Status:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                <ComboBox fx:id="statusCombo" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                <Label text="Notes:" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+                <TextArea fx:id="notesArea" GridPane.columnIndex="3" GridPane.rowIndex="3"
+                          prefHeight="60"/>
+
+                <HBox spacing="10" alignment="CENTER_RIGHT"
+                      GridPane.columnIndex="0" GridPane.rowIndex="4"
+                      GridPane.columnSpan="4">
+
+                    <Button fx:id="addButton" text="Add Appointment" onAction="#addAppointment"/>
+                    <Button fx:id="updateButton" text="Update" onAction="#updateAppointment" disable="true"/>
+                    <Button fx:id="deleteButton" text="Delete" onAction="#deleteAppointment" disable="true"/>
+                    <Button fx:id="completeButton" text="Complete" onAction="#completeAppointment" disable="true"/>
+                    <Button fx:id="cancelButton" text="Cancel Appt" onAction="#cancelAppointment" disable="true"/>
+                    <Button fx:id="clearButton" text="Clear" onAction="#clearForm"/>
+
+                </HBox>
+            </GridPane>
+
+            <Label fx:id="statusLabel"/>
+
+        </VBox>
+    </content>
+</ScrollPane>

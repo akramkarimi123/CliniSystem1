@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.TreatmentController"
+            fitToWidth="true"
+            fitToHeight="true">
+
+    <content>
+
+        <VBox spacing="15"
+              styleClass="form-container"
+              stylesheets="@dental_clinic.css"
+              prefWidth="900"
+              VBox.vgrow="ALWAYS">
+
+            <padding>
+                <Insets top="15" left="15" right="15" bottom="15"/>
+            </padding>
+
+            <Label text="Treatment Catalog" styleClass="form-title"/>
+
+            <!-- SEARCH -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Search:" styleClass="form-label"/>
+                <TextField fx:id="searchField"
+                           promptText="Treatment name or description"
+                           HBox.hgrow="ALWAYS"/>
+            </HBox>
+
+            <!-- FIXED TABLE (same fix style as Patients) -->
+            <TableView fx:id="treatmentTable"
+                       VBox.vgrow="ALWAYS"
+                       minHeight="380">
+
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="60"/>
+                    <TableColumn fx:id="colName" text="Treatment Name" prefWidth="180"/>
+                    <TableColumn fx:id="colDescription" text="Description" prefWidth="250"/>
+                    <TableColumn fx:id="colCost" text="Cost" prefWidth="100"/>
+                    <TableColumn fx:id="colDuration" text="Duration (min)" prefWidth="120"/>
+                </columns>
+
+            </TableView>
+
+            <Separator/>
+
+            <Label text="Treatment Details"
+                   style="-fx-font-weight: bold; -fx-text-fill: #0066a0;"/>
+
+            <!-- FORM AREA FIX -->
+            <GridPane hgap="15" vgap="10"
+                      maxWidth="Infinity"
+                      VBox.vgrow="NEVER">
+
+                <padding>
+                    <Insets top="5" bottom="5"/>
+                </padding>
+
+                <columnConstraints>
+                    <ColumnConstraints minWidth="120"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                </columnConstraints>
+
+                <Label text="Treatment Name:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="0"
+                       styleClass="form-label"/>
+
+                <TextField fx:id="nameField"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="0"
+                           maxWidth="Infinity"/>
+
+                <Label text="Duration (min):"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="1"
+                       styleClass="form-label"/>
+
+                <ComboBox fx:id="durationCombo"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="1"
+                          maxWidth="200"/>
+
+                <Label text="Cost ($):"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="2"
+                       styleClass="form-label"/>
+
+                <TextField fx:id="costField"
+                           GridPane.columnIndex="1"
+                           GridPane.rowIndex="2"
+                           maxWidth="200"/>
+
+                <Label text="Description:"
+                       GridPane.columnIndex="0"
+                       GridPane.rowIndex="3"
+                       styleClass="form-label"/>
+
+                <TextArea fx:id="descriptionArea"
+                          GridPane.columnIndex="1"
+                          GridPane.rowIndex="3"
+                          prefHeight="80"
+                          maxWidth="Infinity"/>
+
+                <HBox spacing="10"
+                      alignment="CENTER_RIGHT"
+                      GridPane.columnIndex="0"
+                      GridPane.rowIndex="4"
+                      GridPane.columnSpan="2">
+
+                    <Button fx:id="addButton"
+                            text="Add Treatment"
+                            onAction="#addTreatment"
+                            styleClass="button-primary"/>
+
+                    <Button fx:id="updateButton"
+                            text="Update"
+                            onAction="#updateTreatment"
+                            styleClass="button-secondary"
+                            disable="true"/>
+
+                    <Button fx:id="deleteButton"
+                            text="Delete"
+                            onAction="#deleteTreatment"
+                            styleClass="button-danger"
+                            disable="true"/>
+
+                    <Button fx:id="clearButton"
+                            text="Clear"
+                            onAction="#clearForm"
+                            styleClass="button-secondary"/>
+
+                </HBox>
+
+            </GridPane>
+
+            <Label fx:id="statusLabel" styleClass="status-label"/>
+
+        </VBox>
+
+    </content>
+</ScrollPane>
